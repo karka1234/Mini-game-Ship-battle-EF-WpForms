@@ -18,5 +18,8 @@ namespace Ship_Battle_BASIC
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
+
+
+
     }
 }
