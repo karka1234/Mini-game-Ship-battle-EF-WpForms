@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -7,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace Ship_Battle_BASIC.Constructors
 {
-    internal class Player
+    [Table("Player")]
+    public class Player
     {
+        [Key]
         public Guid Id { get; set; }
         public string Name { get; set; }
         public int CurrentScore { get; set; }
         public int TotalScore { get; set; }
-        
 
-        //[ForeignKey("PlayerLogs")]
         //public Guid PlayerLogId { get; set; }
 
         public Player(string name, int currentScore,int totalScore)
@@ -27,6 +28,12 @@ namespace Ship_Battle_BASIC.Constructors
         }
         public Player()
         {
+        }
+
+        public void SetTotalScoreAndResetCurrentScore()
+        {
+            TotalScore += CurrentScore;
+            CurrentScore = 0;
         }
     }
 }
