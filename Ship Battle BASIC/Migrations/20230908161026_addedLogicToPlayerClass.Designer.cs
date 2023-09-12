@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Ship_Battle_BASIC.DataBaseModels;
 
 namespace Ship_Battle_BASIC.Migrations
 {
     [DbContext(typeof(PlayerContext))]
-    partial class PlayerContextModelSnapshot : ModelSnapshot
+    [Migration("20230908161026_addedLogicToPlayerClass")]
+    partial class addedLogicToPlayerClass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,9 +26,6 @@ namespace Ship_Battle_BASIC.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("CurrentHits")
-                        .HasColumnType("int");
 
                     b.Property<int>("CurrentScore")
                         .HasColumnType("int");
@@ -46,41 +45,6 @@ namespace Ship_Battle_BASIC.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Player");
-                });
-
-            modelBuilder.Entity("Ship_Battle_BASIC.Constructors.PlayersLog", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("CloseddDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("GameTable")
-                        .HasColumnType("nvarchar(101)")
-                        .HasMaxLength(101);
-
-                    b.Property<Guid>("PlayerId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PlayerId");
-
-                    b.ToTable("PlayerLog");
-                });
-
-            modelBuilder.Entity("Ship_Battle_BASIC.Constructors.PlayersLog", b =>
-                {
-                    b.HasOne("Ship_Battle_BASIC.Constructors.Player", "Player")
-                        .WithMany("PlayersLogs")
-                        .HasForeignKey("PlayerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

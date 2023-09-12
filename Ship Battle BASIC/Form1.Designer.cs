@@ -37,6 +37,7 @@
             this.gameStartButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.labelTotalScore = new System.Windows.Forms.Label();
+            this.buttonResetTableView = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,6 +48,7 @@
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.ColumnHeadersVisible = false;
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -136,11 +138,22 @@
             this.labelTotalScore.TabIndex = 10;
             this.labelTotalScore.Text = "label4";
             // 
+            // buttonResetTableView
+            // 
+            this.buttonResetTableView.Location = new System.Drawing.Point(30, 174);
+            this.buttonResetTableView.Name = "buttonResetTableView";
+            this.buttonResetTableView.Size = new System.Drawing.Size(75, 23);
+            this.buttonResetTableView.TabIndex = 11;
+            this.buttonResetTableView.Text = "Reset view";
+            this.buttonResetTableView.UseVisualStyleBackColor = true;
+            this.buttonResetTableView.Click += new System.EventHandler(this.buttonResetTableView_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(595, 424);
+            this.Controls.Add(this.buttonResetTableView);
             this.Controls.Add(this.labelTotalScore);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gameStartButton);
@@ -153,6 +166,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -169,6 +183,7 @@
         private System.Windows.Forms.Button gameStartButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelTotalScore;
+        private System.Windows.Forms.Button buttonResetTableView;
     }
 }
 

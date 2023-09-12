@@ -194,6 +194,22 @@
     <Compile Include="Migrations\20230907184529_initialPlayersTableCreate.designer.cs">
       <DependentUpon>20230907184529_initialPlayersTableCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20230908161026_addedLogicToPlayerClass.cs" />
+    <Compile Include="Migrations\20230908161026_addedLogicToPlayerClass.designer.cs">
+      <DependentUpon>20230908161026_addedLogicToPlayerClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20230912161341_addPlayerLogs.cs" />
+    <Compile Include="Migrations\20230912161341_addPlayerLogs.designer.cs">
+      <DependentUpon>20230912161341_addPlayerLogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20230912170121_playerTableAddCurrentHits.cs" />
+    <Compile Include="Migrations\20230912170121_playerTableAddCurrentHits.designer.cs">
+      <DependentUpon>20230912170121_playerTableAddCurrentHits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20230912175247_nullableDate.cs" />
+    <Compile Include="Migrations\20230912175247_nullableDate.designer.cs">
+      <DependentUpon>20230912175247_nullableDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\PlayerContextModelSnapshot.cs" />
     <Compile Include="Models\GameManager.cs" />
     <Compile Include="Program.cs" />

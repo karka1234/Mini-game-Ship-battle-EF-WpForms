@@ -1,4 +1,5 @@
 ﻿using Ship_Battle_BASIC.Constructors;
+using Ship_Battle_BASIC.DataBaseModels;
 using Ship_Battle_BASIC.Models;
 using System;
 using System.Collections.Generic;
@@ -26,18 +27,18 @@ namespace Ship_Battle_BASIC
             string textBoxInput = textBoxUserName.Text.ToString();
             if (textBoxInput != "")
             {
+                gameManager.CurrPlayer = DataBaseManager.CheckPlayerAndGetPlayer(textBoxInput);
 
-
-
-
-
-                gameManager.CurrPlayer = new Player(textBoxInput, 0, 0);    
-                
                 Form1 form = new Form1(gameManager);
                 form.Show();
 
                 this.Hide();
             }
+        }
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.Environment.Exit(0);
         }
     }
 }

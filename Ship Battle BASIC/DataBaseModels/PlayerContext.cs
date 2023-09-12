@@ -13,11 +13,12 @@ namespace Ship_Battle_BASIC.DataBaseModels
     internal class PlayerContext : DbContext
     {
         public DbSet<Player> Players { get; set; }
-        //public DbSet<PlayersLog> PlayerLogs { get; set; }
+        public DbSet<PlayersLog> PlayerLogs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(DataBaseConnection.connectionString);
+            optionsBuilder              
+                .UseSqlServer(DataBaseConnection.connectionString);
         }
     }
 }
