@@ -22,13 +22,11 @@ namespace Ship_Battle_BASIC.DataBaseModels
                 {///////////////////////atsijaunint ef reik
 
                     player = context.Players
-                        .Include(p => p.PlayersLogs)
+                        .Include(p => p.PlayersLogs
+                            .Where(pl=>pl.CloseddDate == null)
+                            .OrderByDescending(pl=>pl.CreatedDate))
                         .FirstOrDefault(x =>x.Name.Equals(userNameInput));
-
-
                     return player;
-                    //player = context.Players.First(x => x.Name.Equals(userNameInput)).Incl
-                    //player.PlayersLogs.Add(context.PlayerLogs.First(x => x.PlayerId == player.Id && x.CloseddDate == DateTime.MinValue));
                 }
                 else
                 {//registracija galima kazkokia padaryt
@@ -45,28 +43,39 @@ namespace Ship_Battle_BASIC.DataBaseModels
         {
             using (var context = new PlayerContext())
             {                
-                context.Update<Player>(player);                               
-                PlayersLog playersLog = new PlayersLog(player.Id, gameTable);
-                if(player.MachInProgress == false)
-                    playersLog.CloseddDate = DateTime.Now;
-                player.PlayersLogs.Add(playersLog);
+                context.Update<Player>(player);
+
+                if (player.PlayersLogs.Count < 1)//optimizuoti cia kazkaip
+                {
+                    PlayersLog playersLog = new PlayersLog(player.Id, gameTable);
+                    if (player.MachInProgress == false)
+                        playersLog.CloseddDate = DateTime.Now;
+                    player.PlayersLogs.Add(playersLog);
+                }
+                else
+                {
+                    if (player.MachInProgress == false)
+                        player.PlayersLogs.First().CloseddDate = DateTime.Now;
+                    context.Update<PlayersLog>(player.PlayersLogs.First());
+                }
+
                 context.SaveChanges();
             } 
         }
 
-        public static string GetGameTable(Guid playerId)
+      /*  public static string GetGameTable(Guid playerId)
         {
             PlayersLog playersLog = new PlayersLog();
             using (var context = new PlayerContext())
             {
-                if (context.PlayerLogs.Any(x => x.PlayerId == playerId && x.CloseddDate == DateTime.MinValue))
+               // if (context.PlayerLogs.Any(x => x.PlayerId == playerId && x.CloseddDate == null))
                 {
-                    playersLog = context.PlayerLogs.First(x => x.PlayerId == playerId && x.CloseddDate == DateTime.MinValue);
+                    playersLog = context.PlayerLogs.First(x => x.PlayerId == playerId && x.CloseddDate == null);
                     return playersLog.GameTable;
                 }
             }
             return "";
-        }
+        }*/
 
 
 

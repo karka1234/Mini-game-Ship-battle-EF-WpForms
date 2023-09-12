@@ -60,7 +60,7 @@ namespace Ship_Battle_BASIC.Models
         {
             if (CurrPlayer.MachInProgress == true)//tikrint ar yra logu isviso / bet realiai jei yra mach i
             {
-                FillUsedBombsIntoTable(CurrPlayer.GetGameTableFromPlayerLogs());
+                FillUsedBombsIntoTable(CurrPlayer.PlayersLogs.First().GameTable);
                 PrepareUsedGameTable();
             }
             else

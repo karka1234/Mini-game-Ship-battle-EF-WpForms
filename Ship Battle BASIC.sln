@@ -1,9 +1,9 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ship Battle BASIC", "Ship Battle BASIC\Ship Battle BASIC.csproj", "{590F8852-B0EB-4758-BC43-D04BA3848F02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ship Battle BASIC", "Ship Battle BASIC\Ship Battle BASIC.csproj", "{590F8852-B0EB-4758-BC43-D04BA3848F02}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEsting", "TEsting\TEsting.csproj", "{4F25AF7B-BAD1-413F-A885-D374B1D743ED}"
 EndProject

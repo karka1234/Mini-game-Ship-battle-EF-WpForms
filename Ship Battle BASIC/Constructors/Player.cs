@@ -55,7 +55,7 @@ namespace Ship_Battle_BASIC.Constructors
         }
 
 
-        public string GetGameTableFromPlayerLogs()
+      /*  public string GetGameTableFromPlayerLogs()///nebereikia bet palieku just in case
         {
             return DataBaseManager.GetGameTable(Id);
         }
@@ -65,7 +65,7 @@ namespace Ship_Battle_BASIC.Constructors
             //is db tikrint player logus
 
             return false;
-        }
+        }*/
 
     }
 }
