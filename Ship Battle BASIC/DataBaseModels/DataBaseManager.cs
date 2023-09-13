@@ -58,24 +58,9 @@ namespace Ship_Battle_BASIC.DataBaseModels
                         player.PlayersLogs.First().CloseddDate = DateTime.Now;
                     context.Update<PlayersLog>(player.PlayersLogs.First());
                 }
-
                 context.SaveChanges();
             } 
         }
-
-      /*  public static string GetGameTable(Guid playerId)
-        {
-            PlayersLog playersLog = new PlayersLog();
-            using (var context = new PlayerContext())
-            {
-               // if (context.PlayerLogs.Any(x => x.PlayerId == playerId && x.CloseddDate == null))
-                {
-                    playersLog = context.PlayerLogs.First(x => x.PlayerId == playerId && x.CloseddDate == null);
-                    return playersLog.GameTable;
-                }
-            }
-            return "";
-        }*/
 
 
 

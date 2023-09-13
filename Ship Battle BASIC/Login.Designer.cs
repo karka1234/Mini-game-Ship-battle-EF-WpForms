@@ -28,58 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBoxUserName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonLogin = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            textBoxUserName = new System.Windows.Forms.TextBox();
+            buttonLogin = new System.Windows.Forms.Button();
+            label1 = new System.Windows.Forms.Label();
+            SuspendLayout();
             // 
             // textBoxUserName
             // 
-            this.textBoxUserName.Location = new System.Drawing.Point(52, 51);
-            this.textBoxUserName.Name = "textBoxUserName";
-            this.textBoxUserName.Size = new System.Drawing.Size(136, 20);
-            this.textBoxUserName.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(49, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Enter your username";
+            textBoxUserName.Location = new System.Drawing.Point(15, 61);
+            textBoxUserName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBoxUserName.Name = "textBoxUserName";
+            textBoxUserName.Size = new System.Drawing.Size(171, 23);
+            textBoxUserName.TabIndex = 0;
+            textBoxUserName.Text = "Enter your name";
             // 
             // buttonLogin
             // 
-            this.buttonLogin.Location = new System.Drawing.Point(52, 77);
-            this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(75, 23);
-            this.buttonLogin.TabIndex = 2;
-            this.buttonLogin.Text = "LOGIN";
-            this.buttonLogin.UseVisualStyleBackColor = true;
-            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
+            buttonLogin.Location = new System.Drawing.Point(13, 101);
+            buttonLogin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            buttonLogin.Name = "buttonLogin";
+            buttonLogin.Size = new System.Drawing.Size(171, 43);
+            buttonLogin.TabIndex = 2;
+            buttonLogin.Text = "LOGIN";
+            buttonLogin.UseVisualStyleBackColor = true;
+            buttonLogin.Click += buttonLogin_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label1.Location = new System.Drawing.Point(49, 9);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(95, 37);
+            label1.TabIndex = 1;
+            label1.Text = "GAME";
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(263, 160);
-            this.Controls.Add(this.buttonLogin);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBoxUserName);
-            this.Name = "Login";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(199, 156);
+            Controls.Add(buttonLogin);
+            Controls.Add(label1);
+            Controls.Add(textBoxUserName);
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Name = "Login";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Login";
+            FormClosing += Login_FormClosing;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private System.Windows.Forms.TextBox textBoxUserName;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonLogin;
+        private System.Windows.Forms.Label label1;
     }
 }

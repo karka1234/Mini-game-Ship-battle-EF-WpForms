@@ -54,18 +54,5 @@ namespace Ship_Battle_BASIC.Constructors
             CurrentHits = 0;
         }
 
-
-      /*  public string GetGameTableFromPlayerLogs()///nebereikia bet palieku just in case
-        {
-            return DataBaseManager.GetGameTable(Id);
-        }
-
-        public bool CheckOpenPlayerLogExists()
-        { 
-            //is db tikrint player logus
-
-            return false;
-        }*/
-
     }
 }

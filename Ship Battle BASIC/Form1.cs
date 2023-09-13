@@ -17,13 +17,14 @@ namespace Ship_Battle_BASIC
     public partial class Form1 : Form
     {
 
-        GameManager GameManager = new GameManager();        
+        GameManager GameManager = new GameManager();
 
         public Form1(GameManager gameManager)
         {
             InitializeComponent();
             GameManager = gameManager;
             GameManager.dataGridViewObject = dataGridView1;
+            SetLabelsForPlayerInfo();
         }
 
 
@@ -31,15 +32,9 @@ namespace Ship_Battle_BASIC
         {
             InitTableView();
             gameStartButton.Enabled = false;
- 
-            SetLabelsForPlayerInfo();            
-
             GameManager.CheckAndFillBombsField();
-            //reikia nudazyt game fielda
             GameManager.CurrPlayer.SetGameStarted();
         }
-
-
 
         private void InitTableView()
         {
@@ -48,13 +43,13 @@ namespace Ship_Battle_BASIC
                 var col = new DataGridViewButtonColumn();
                 col.FlatStyle = FlatStyle.Flat;
                 col.DefaultCellStyle.BackColor = Color.Gray;
-                //col.DefaultCellStyle.ForeColor = Color.Gray;
+                col.DefaultCellStyle.ForeColor = Color.Gray;
                 col.Name = i.ToString();
-                col.Width = 40;
+                col.Width = 45;
                 dataGridView1.Columns.Add(col);
                 var row = new DataGridViewRow();
-                row.HeaderCell.Value = Convert.ToChar(65 + i).ToString();                
-                row.Height = 40;
+                row.HeaderCell.Value = Convert.ToChar(65 + i).ToString();
+                row.Height = 45;
                 dataGridView1.Rows.Add(row);
             }
         }
@@ -66,6 +61,8 @@ namespace Ship_Battle_BASIC
 
         private void SetLabelsForPlayerInfo()
         {
+            if (GameManager.CurrPlayer.MachInProgress == true)
+                gameStartButton.Text = "Continue";
             labelUserName.Text = GameManager.CurrPlayer.Name;
             labelTotalScore.Text = GameManager.CurrPlayer.TotalScore.ToString();
         }
@@ -134,6 +131,8 @@ namespace Ship_Battle_BASIC
             dataGridView1.Refresh();
             gameStartButton.Enabled = true;
         }
+
+
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
