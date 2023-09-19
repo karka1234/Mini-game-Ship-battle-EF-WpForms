@@ -19,12 +19,7 @@ namespace Ship_Battle_BASIC.DataBaseModels
             {
                 if (context.Players.Any(x => x.Name.Equals(userNameInput)))
                 {
-                    player = context.Players
-                        .Include(p => p.PlayersLogs
-                            .Where(pl=>pl.CloseddDate == null)
-                            .OrderByDescending(pl=>pl.CreatedDate))
-                        .FirstOrDefault(x =>x.Name.Equals(userNameInput));
-                    return player;
+                    return GetPlayer(userNameInput, context);
                 }
                 else
                 {
@@ -35,12 +30,22 @@ namespace Ship_Battle_BASIC.DataBaseModels
             }
             return player;
         }
+
+        private static Player GetPlayer(string userNameInput, PlayerContext context)
+        {
+            return context.Players
+                .Include(p => p.PlayersLogs
+                    .Where(pl => pl.CloseddDate == null)
+                    .OrderByDescending(pl => pl.CreatedDate))
+                .FirstOrDefault(x => x.Name.Equals(userNameInput));
+        }
+
         public static void UpdatePlayerDataToDb(Player player, string gameTable)
         {
             using (var context = new PlayerContext())
             {                
                 context.Update<Player>(player);
-                if (player.PlayersLogs.Count < 1)
+                if (player.PlayersLogs.Count < 1)//kazkaip pakeist... jei nera tiesiog kuriam nauja
                 {
                     PlayersLog playersLog = new PlayersLog(player.Id, gameTable);
                     if (player.MachInProgress == false)
@@ -56,5 +61,13 @@ namespace Ship_Battle_BASIC.DataBaseModels
                 context.SaveChanges();
             } 
         }
+
+        public static void GetAllPlayersStatsAndSetToView(DataGridView dataGridView)
+        {
+            using var context = new PlayerContext();
+            var playerStats = context.Players.Select(x => new { x.Name, x.TotalMachesPlayed, x.TotalScore, x.MachInProgress }).ToList();
+            dataGridView.DataSource = playerStats;
+        }
+
     }
 }

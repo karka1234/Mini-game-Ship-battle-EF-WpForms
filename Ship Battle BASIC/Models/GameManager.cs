@@ -10,13 +10,13 @@ namespace Ship_Battle_BASIC.Models
 {
     public class GameManager
     {
+        public int TotalGameHits { get; } = 10;
         public char greenHit { get; } = '1';
         public char redHit { get; } = '0';
         public char usedCellGreen { get; } = '9';
         public char usedCellRed { get; } = '8';
         public Player CurrPlayer { get; set; }
-        public DataGridView dataGridViewObject { get; set; }
-        public int TotalGameHits { get; } = 10;
+        public DataGridView dataGridViewObject { get; set; }        
         public void AddScore(int scoreToAdd = 1)
         {
             CurrPlayer.CurrentScore += scoreToAdd;

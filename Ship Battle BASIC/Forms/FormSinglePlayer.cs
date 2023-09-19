@@ -14,10 +14,10 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace Ship_Battle_BASIC
 {
-    public partial class labelTotalMaches : Form
+    public partial class FormSinglePlayer : Form
     {
-        GameManager GameManager = new GameManager();
-        public labelTotalMaches(GameManager gameManager)
+        private GameManager GameManager = new GameManager();
+        public FormSinglePlayer(GameManager gameManager)
         {
             InitializeComponent();
             GameManager = gameManager;

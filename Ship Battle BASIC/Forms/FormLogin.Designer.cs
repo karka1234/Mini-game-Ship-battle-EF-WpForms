@@ -1,6 +1,6 @@
 ﻿namespace Ship_Battle_BASIC
 {
-    partial class Login
+    partial class FormLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -44,12 +44,13 @@
             // 
             // buttonLogin
             // 
+            buttonLogin.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             buttonLogin.Location = new System.Drawing.Point(13, 101);
             buttonLogin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             buttonLogin.Name = "buttonLogin";
             buttonLogin.Size = new System.Drawing.Size(171, 43);
             buttonLogin.TabIndex = 2;
-            buttonLogin.Text = "LOGIN";
+            buttonLogin.Text = "LOGIN/REG";
             buttonLogin.UseVisualStyleBackColor = true;
             buttonLogin.Click += buttonLogin_Click;
             // 
@@ -64,7 +65,7 @@
             label1.TabIndex = 1;
             label1.Text = "GAME";
             // 
-            // Login
+            // FormLogin
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -73,7 +74,7 @@
             Controls.Add(label1);
             Controls.Add(textBoxUserName);
             Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            Name = "Login";
+            Name = "FormLogin";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "Login";
             FormClosing += Login_FormClosing;

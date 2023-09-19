@@ -44,6 +44,5 @@ namespace Ship_Battle_BASIC.Constructors
             MachInProgress = false;
             CurrentHits = 0;
         }
-
     }
 }

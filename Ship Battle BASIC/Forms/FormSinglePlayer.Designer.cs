@@ -1,6 +1,6 @@
 ﻿namespace Ship_Battle_BASIC
 {
-    partial class labelTotalMaches
+    partial class FormSinglePlayer
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             dataGridView1 = new System.Windows.Forms.DataGridView();
             label2 = new System.Windows.Forms.Label();
             labelUserName = new System.Windows.Forms.Label();
@@ -62,9 +62,9 @@
             dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.DarkGray;
-            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.DarkGray;
+            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dataGridView1.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DarkGray;
             dataGridView1.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.DarkGray;
             dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -123,13 +123,13 @@
             // 
             // gameStartButton
             // 
-            gameStartButton.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            gameStartButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             gameStartButton.Location = new System.Drawing.Point(351, 12);
             gameStartButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             gameStartButton.Name = "gameStartButton";
             gameStartButton.Size = new System.Drawing.Size(131, 82);
             gameStartButton.TabIndex = 8;
-            gameStartButton.Text = "Single Player";
+            gameStartButton.Text = "Start Game";
             gameStartButton.UseVisualStyleBackColor = true;
             gameStartButton.Click += gameStartButton_Click;
             // 
@@ -151,9 +151,9 @@
             labelTotalScore.Location = new System.Drawing.Point(143, 60);
             labelTotalScore.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             labelTotalScore.Name = "labelTotalScore";
-            labelTotalScore.Size = new System.Drawing.Size(64, 25);
+            labelTotalScore.Size = new System.Drawing.Size(45, 25);
             labelTotalScore.TabIndex = 10;
-            labelTotalScore.Text = "label4";
+            labelTotalScore.Text = "000";
             // 
             // label4
             // 
@@ -173,9 +173,9 @@
             labelTotalMach.Location = new System.Drawing.Point(143, 81);
             labelTotalMach.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             labelTotalMach.Name = "labelTotalMach";
-            labelTotalMach.Size = new System.Drawing.Size(64, 25);
+            labelTotalMach.Size = new System.Drawing.Size(45, 25);
             labelTotalMach.TabIndex = 12;
-            labelTotalMach.Text = "label4";
+            labelTotalMach.Text = "000";
             // 
             // labelMaxGamePoints
             // 
