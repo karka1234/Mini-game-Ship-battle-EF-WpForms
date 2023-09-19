@@ -21,11 +21,7 @@ namespace Ship_Battle_BASIC.Constructors
         public int TotalMachesPlayed { get; set; }
         public bool MachInProgress { get; set; }
         public int CurrentHits { get; set; }
-
-
         public List<PlayersLog> PlayersLogs { get; set; } = new List<PlayersLog>();
-
-
         public Player(string name, int currentScore,int totalScore, int totalMachesPlayed, bool machInProgress)
         {
             Id = Guid.NewGuid();
@@ -34,17 +30,12 @@ namespace Ship_Battle_BASIC.Constructors
             TotalScore = totalScore;
             TotalMachesPlayed = totalMachesPlayed;
             MachInProgress = machInProgress;
-        }       
-
-        public Player()
-        {
-        }
-
+        }      
+        public Player()        {        }
         public void SetGameStarted()
         {
             MachInProgress = true;
         }
-
         public void SetGameEnd()
         {
             TotalMachesPlayed++;

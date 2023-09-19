@@ -14,20 +14,16 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace Ship_Battle_BASIC
 {
-    public partial class Form1 : Form
+    public partial class labelTotalMaches : Form
     {
-
         GameManager GameManager = new GameManager();
-
-        public Form1(GameManager gameManager)
+        public labelTotalMaches(GameManager gameManager)
         {
             InitializeComponent();
             GameManager = gameManager;
             GameManager.dataGridViewObject = dataGridView1;
             SetLabelsForPlayerInfo();
         }
-
-
         private void gameStartButton_Click(object sender, EventArgs e)
         {
             InitTableView();
@@ -35,7 +31,6 @@ namespace Ship_Battle_BASIC
             GameManager.CheckAndFillBombsField();
             GameManager.CurrPlayer.SetGameStarted();
         }
-
         private void InitTableView()
         {
             for (int i = 0; i < 10; i++)
@@ -53,20 +48,15 @@ namespace Ship_Battle_BASIC
                 dataGridView1.Rows.Add(row);
             }
         }
-
-
-
-
-
-
         private void SetLabelsForPlayerInfo()
         {
             if (GameManager.CurrPlayer.MachInProgress == true)
                 gameStartButton.Text = "Continue";
             labelUserName.Text = GameManager.CurrPlayer.Name;
-            labelTotalScore.Text = GameManager.CurrPlayer.TotalScore.ToString();
+            labelTotalScore.Text = $"{GameManager.CurrPlayer.TotalScore.ToString()}";
+            labelMaxGamePoints.Text = $"/ {GameManager.TotalGameHits}";
+            labelTotalMach.Text = GameManager.CurrPlayer.TotalMachesPlayed.ToString();
         }
-
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             ManageHitAndSetCellColors(e);
@@ -76,7 +66,6 @@ namespace Ship_Battle_BASIC
 
             ChekIfGameEnded();
         }
-
         private void ChekIfGameEnded()
         {
             if (GameManager.CheckIfUserHitsReachedLimit())
@@ -86,18 +75,13 @@ namespace Ship_Battle_BASIC
                 ResetGameWindow();
             }
         }
-
         private void ShowGameResults()
         {
             MessageBox.Show($"Game Over\r\n" +
                 $"Collected Score: {GameManager.CurrPlayer.CurrentScore} / {GameManager.TotalGameHits}\r\n" +
                 $"Total Score: {GameManager.CurrPlayer.TotalScore}");
+            SetLabelsForPlayerInfo();
         }
-
-
-
-
-
         private void ManageHitAndSetCellColors(DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
@@ -115,31 +99,23 @@ namespace Ship_Battle_BASIC
                 }
             }
         }
-
         private void SetDataGridViewColorsAndSetUsed(DataGridViewCellEventArgs e, Color hitColor, char usedCellColor)
         {
             dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = usedCellColor;
             dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = hitColor;
             dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = hitColor;
         }
-
-
-
         private void ResetGameWindow()
         {
             dataGridView1.Rows.Clear();
             dataGridView1.Refresh();
             gameStartButton.Enabled = true;
         }
-
-
-
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             GameManager.RageQuit();
             System.Environment.Exit(0);
         }
-
         private void buttonResetTableView_Click(object sender, EventArgs e)
         {
             MessageBox.Show(GameManager.GetGameTable());

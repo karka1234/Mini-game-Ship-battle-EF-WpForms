@@ -16,7 +16,7 @@ namespace Ship_Battle_BASIC
 {
     public partial class Login : Form
     {
-        public GameManager gameManager = new GameManager();//cia del to nes tipo ilgai loadina gal.. 
+        public GameManager gameManager = new GameManager(); 
         public Login()
         {
             InitializeComponent();
@@ -25,13 +25,11 @@ namespace Ship_Battle_BASIC
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             string textBoxInput = textBoxUserName.Text.ToString();
-            if (textBoxInput != "")
+            if (textBoxInput != "" && textBoxInput != "Enter your name")
             {
                 gameManager.CurrPlayer = DataBaseManager.CheckPlayerAndGetPlayer(textBoxInput);
-
-                Form1 form = new Form1(gameManager);
+                labelTotalMaches form = new labelTotalMaches(gameManager);
                 form.Show();
-
                 this.Hide();
             }
         }

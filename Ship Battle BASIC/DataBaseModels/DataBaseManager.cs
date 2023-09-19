@@ -11,7 +11,6 @@ namespace Ship_Battle_BASIC.DataBaseModels
 {
     internal static class DataBaseManager
     {
-
         public static Player CheckPlayerAndGetPlayer(string userNameInput)
         {
             userNameInput = userNameInput.ToUpper();
@@ -19,8 +18,7 @@ namespace Ship_Battle_BASIC.DataBaseModels
             using (var context = new PlayerContext())
             {
                 if (context.Players.Any(x => x.Name.Equals(userNameInput)))
-                {///////////////////////atsijaunint ef reik
-
+                {
                     player = context.Players
                         .Include(p => p.PlayersLogs
                             .Where(pl=>pl.CloseddDate == null)
@@ -29,7 +27,7 @@ namespace Ship_Battle_BASIC.DataBaseModels
                     return player;
                 }
                 else
-                {//registracija galima kazkokia padaryt
+                {
                     player = new Player(userNameInput.ToUpper(), 0, 0, 0, false);
                     context.Add(player);
                     context.SaveChanges();
@@ -37,15 +35,12 @@ namespace Ship_Battle_BASIC.DataBaseModels
             }
             return player;
         }
-
-
-        public static void UpdatePlayerDataToDb(Player player, string gameTable)//sukurti arba atnaujinti ir player log
+        public static void UpdatePlayerDataToDb(Player player, string gameTable)
         {
             using (var context = new PlayerContext())
             {                
                 context.Update<Player>(player);
-
-                if (player.PlayersLogs.Count < 1)//optimizuoti cia kazkaip
+                if (player.PlayersLogs.Count < 1)
                 {
                     PlayersLog playersLog = new PlayersLog(player.Id, gameTable);
                     if (player.MachInProgress == false)
@@ -61,8 +56,5 @@ namespace Ship_Battle_BASIC.DataBaseModels
                 context.SaveChanges();
             } 
         }
-
-
-
     }
 }

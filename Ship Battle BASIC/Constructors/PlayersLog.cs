@@ -16,24 +16,15 @@ namespace Ship_Battle_BASIC.Constructors
         public DateTime? CreatedDate { get; set; }
         public DateTime? CloseddDate { get; set; }
         [MaxLength(101)]
-        public string GameTable { get; set; }//uzpildom pries uzdaryma programos. Paleidziant programa po logino tikrinam ar yra machinprogress jei yra imam sita
-        
-
+        public string GameTable { get; set; }       
         public Guid PlayerId { get; set; }
         public Player Player { get; set; }
-
-
         public PlayersLog(Guid playerId, string gameTable)
         {
             PlayerId = playerId;
             GameTable = gameTable;
             CreatedDate = DateTime.Now;
         }
-
-
-
         public PlayersLog() { }
-
-
     }
 }

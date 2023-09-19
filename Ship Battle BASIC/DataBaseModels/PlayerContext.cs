@@ -14,7 +14,6 @@ namespace Ship_Battle_BASIC.DataBaseModels
     {
         public DbSet<Player> Players { get; set; }
         public DbSet<PlayersLog> PlayerLogs { get; set; }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder              
