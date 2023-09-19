@@ -8,13 +8,14 @@ using System.Windows.Forms;
 
 namespace Ship_Battle_BASIC.Models
 {
-    public class GameManager
+    public class SingleGameManager
     {
         public int TotalGameHits { get; } = 10;
         public char greenHit { get; } = '1';
         public char redHit { get; } = '0';
         public char usedCellGreen { get; } = '9';
         public char usedCellRed { get; } = '8';
+        public char enemyHit { get; } = '5';
         public Player CurrPlayer { get; set; }
         public DataGridView dataGridViewObject { get; set; }        
         public void AddScore(int scoreToAdd = 1)
@@ -111,5 +112,8 @@ namespace Ship_Battle_BASIC.Models
                 }
             }
         }
+
+
+        
     }
 }

@@ -14,8 +14,8 @@ namespace Ship_Battle_BASIC
 {
     public partial class FormModeChoose : Form
     {
-        private GameManager gameManager;
-        public FormModeChoose(GameManager manager)
+        private SingleGameManager gameManager;
+        public FormModeChoose(SingleGameManager manager)
         {
             InitializeComponent();
             gameManager = manager;

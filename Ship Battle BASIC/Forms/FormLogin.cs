@@ -17,7 +17,7 @@ namespace Ship_Battle_BASIC
 {
     public partial class FormLogin : Form
     {
-        private GameManager gameManager = new GameManager();
+        private SingleGameManager gameManager = new SingleGameManager();
         public FormLogin()
         {
             InitializeComponent();

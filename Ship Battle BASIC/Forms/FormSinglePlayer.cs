@@ -16,8 +16,8 @@ namespace Ship_Battle_BASIC
 {
     public partial class FormSinglePlayer : Form
     {
-        private GameManager GameManager = new GameManager();
-        public FormSinglePlayer(GameManager gameManager)
+        private SingleGameManager GameManager = new SingleGameManager();
+        public FormSinglePlayer(SingleGameManager gameManager)
         {
             InitializeComponent();
             GameManager = gameManager;
@@ -40,11 +40,11 @@ namespace Ship_Battle_BASIC
                 col.DefaultCellStyle.BackColor = Color.Gray;
                 col.DefaultCellStyle.ForeColor = Color.Gray;
                 col.Name = i.ToString();
-                col.Width = 45;
+                col.Width = 46;
                 dataGridView1.Columns.Add(col);
                 var row = new DataGridViewRow();
                 row.HeaderCell.Value = Convert.ToChar(65 + i).ToString();
-                row.Height = 45;
+                row.Height = 46;
                 dataGridView1.Rows.Add(row);
             }
         }
@@ -52,6 +52,8 @@ namespace Ship_Battle_BASIC
         {
             if (GameManager.CurrPlayer.MachInProgress == true)
                 gameStartButton.Text = "Continue";
+            else
+                gameStartButton.Text = "Start game";
             labelUserName.Text = GameManager.CurrPlayer.Name;
             labelTotalScore.Text = $"{GameManager.CurrPlayer.TotalScore.ToString()}";
             labelMaxGamePoints.Text = $"/ {GameManager.TotalGameHits}";
@@ -60,17 +62,16 @@ namespace Ship_Battle_BASIC
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             ManageHitAndSetCellColors(e);
-
             currentScore.Text = GameManager.CurrPlayer.CurrentScore.ToString();
             dataGridView1.ClearSelection();
-
             ChekIfGameEnded();
         }
         private void ChekIfGameEnded()
         {
             if (GameManager.CheckIfUserHitsReachedLimit())
-            {
+            {//cia patvarkyt kad parodytu total scora prasidejus naujam game
                 ShowGameResults();
+                SetLabelsForPlayerInfo();
                 GameManager.UpdatePlayerAndResetPlayer();
                 ResetGameWindow();
             }
@@ -79,8 +80,7 @@ namespace Ship_Battle_BASIC
         {
             MessageBox.Show($"Game Over\r\n" +
                 $"Collected Score: {GameManager.CurrPlayer.CurrentScore} / {GameManager.TotalGameHits}\r\n" +
-                $"Total Score: {GameManager.CurrPlayer.TotalScore}");
-            SetLabelsForPlayerInfo();
+                $"Total Score: {GameManager.CurrPlayer.TotalScore}");            
         }
         private void ManageHitAndSetCellColors(DataGridViewCellEventArgs e)
         {

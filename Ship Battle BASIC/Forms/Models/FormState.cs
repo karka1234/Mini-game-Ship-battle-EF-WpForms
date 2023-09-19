@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Ship_Battle_BASIC.Forms.Models
 {
-    public static class FormState
+    public static class FormState//padqaryt vienodu form konfigu setteri
     {
         public static Form PrevForm;
     }
